@@ -18,14 +18,21 @@ const DEVELOPER_NAME = "andreasdominik"
 Snips.setDeveloperName(DEVELOPER_NAME)
 Snips.setModule(@__MODULE__)
 
+# Filenames:
+#
+const CALENDAR_JSON = "googleevents.json"
+const PYTHON_SCRIPT = "$MODULE_DIR/googlegetevents.py"
+
 # Slots:
 # Name of slots to be extracted from intents:
 #
-const SLOT_WORD = "a_word"
+const SLOT_MODE = "mode"
 
 # name of entry in config.ini:
 #
-const INI_MY_NAME = "my_name"
+const INI_CREDENTIALS_PATH = "path_to_credentials"
+const INI_GOOGLE_CREDENTIALS = "google_credentials_file"
+const INI_PICKLE = "pickle_file"
 
 #
 # link between actions and intents:
@@ -38,15 +45,15 @@ const INI_MY_NAME = "my_name"
 # Language-dependent settings:
 #
 if LANG == "de"
-    Snips.registerIntentAction("pleaseRepeatDE", DEVELOPER_NAME,
+    Snips.registerIntentAction("ReadGoogleCalendarDE", DEVELOPER_NAME,
                                 @__MODULE__, templateAction)
     TEXTS = TEXTS_DE
-elseif LANG == "en"
-    Snips.registerIntentAction("pleaseRepeatEN", DEVELOPER_NAME,
-                                @__MODULE__, templateAction)
-    TEXTS = TEXTS_EN
+# elseif LANG == "en"
+#     Snips.registerIntentAction("pleaseRepeatEN", DEVELOPER_NAME,
+#                                 @__MODULE__, templateAction)
+#     TEXTS = TEXTS_EN
 else
-    Snips.registerIntentAction("pleaseRepeatEN", DEVELOPER_NAME,
+    Snips.registerIntentAction("ReadGoogleCalendarDE", DEVELOPER_NAME,
                                 @__MODULE__, templateAction)
-    TEXTS = TEXTS_EN
+    TEXTS = TEXTS_DE
 end
