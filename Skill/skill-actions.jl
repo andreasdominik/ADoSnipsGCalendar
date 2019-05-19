@@ -10,36 +10,61 @@
 # * MQTT-Payload (The JSON part) as a nested dictionary, with all keys
 #   as Symbols (Julia-style)
 #
-"""
-function templateAction(topic, payload)
 
-    Dummyaction for the template.
 """
-function templateAction(topic, payload)
+function calendarToday(intent, payload)
+
+"""
+function googleCalendar(intent, payload)
 
     # log:
-    println("- ADoSnipsTemplate: action templateAction() started.")
-
-    # get my name from config.ini:
     #
-    myName = Snips.getConfig(INI_MY_NAME)
-    if myName == nothing
-        Snips.publishEndSession(TEXTS[:noname])
-        return false
+    println("[ADoSnipsCalendar]: action googelCalendar() started.")
+
+    mode = Snips.extractSlotValue(payload, SLOT_MODE)
+    if mode == nothing
+        mode = "next4"
     end
 
-    # get the word to repeat from slot:
-    #
-    word = Snips.extractSlotValue(payload, SLOT_WORD)
-    if word == nothing
-        Snips.publishEndSession(TEXTS[:dunno])
-        return true
+    if mode == "today"
+        when = "Heute"
+    elseif mode == "tomorrow"
+        when = "Morgen"
+    else
+        when = "In nächster Zeit"
     end
 
-    # say who you are:
-    #
-    Snips.publishSay(TEXTS[:bravo], lang = LANG)
-    Snips.publishEndSession("""$(TEXTS[:iam]) $myName.
-                            $(TEXTS[:isay]) $word""")
-    return true
+    if getGoogleCalendar(mode)
+        raw = Snips.tryParseJSONfile(CALENDAR_JSON)
+
+        if raw[:num_events] < 1
+            Snips.publishEndSession("$when gibt es keine Termine!")
+        else
+            events = raw[:events]
+            if raw[:num_events] == 1
+                Snips.publishSay("$when gibt es einen Termin:", lang = LANG)
+            else
+                Snips.publishSay("$when gibt es $(raw[:num_events]) Termine:",
+                                 lang = LANG)
+            end
+            sayEvents(events)
+            Snips.publishEndSession("")
+        end
+    else
+        Snips.publishEndSession("Es gab ein Problem beim Abrufen der Termine!")
+    end
+    return false
+end
+
+
+
+
+
+function sayEvents(events)
+
+    for e in events
+        start = Snips.mkDateTime(e[:time], lang = LANG)
+        Snips.publishSay(start, lang = LANG)
+        Snips.publishSay(e[:description], lang = LANG)
+    end
 end
