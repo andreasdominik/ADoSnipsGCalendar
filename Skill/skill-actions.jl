@@ -12,14 +12,14 @@
 #
 
 """
-function calendarToday(intent, payload)
+function googleCalendar(topic, payload)
 
 """
-function googleCalendar(intent, payload)
+function googleCalendar(topic, payload)
 
     # log:
     #
-    println("[ADoSnipsCalendar]: action googelCalendar() started.")
+    println("[ADoSnipsGCalendar]: action googleCalendar() started.")
 
     mode = Snips.extractSlotValue(payload, SLOT_MODE)
     if mode == nothing
@@ -63,8 +63,8 @@ end
 function sayEvents(events)
 
     for e in events
-        start = Snips.mkDateTime(e[:time], lang = LANG)
-        Snips.publishSay(start, lang = LANG)
-        Snips.publishSay(e[:description], lang = LANG)
+        start = Snips.readableDateTime(e[:time])
+        Snips.publishSay(start)
+        Snips.publishSay(e[:description])
     end
 end
