@@ -21,7 +21,8 @@ Snips.setModule(@__MODULE__)
 # Filenames:
 #
 const CALENDAR_JSON = "googleevents.json"
-const PYTHON_SCRIPT = "$MODULE_DIR/googlegetevents.py"
+# const PYTHON_SCRIPT = "$MODULE_DIR/googlegetevents.py"
+const PYTHON_SCRIPT = "$MODULE_DIR/runapi.sh"
 
 # Slots:
 # Name of slots to be extracted from intents:
