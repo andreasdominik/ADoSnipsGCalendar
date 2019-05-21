@@ -45,15 +45,13 @@ const INI_PICKLE = "pickle_file"
 # Language-dependent settings:
 #
 if LANG == "de"
-    Snips.registerIntentAction("ReadGoogleCalendarDE", DEVELOPER_NAME,
-                                @__MODULE__, googleCalendar)
+    Snips.registerIntentAction("ReadGoogleCalendarDE", googleCalendar)
     TEXTS = TEXTS_DE
 # elseif LANG == "en"
 #     Snips.registerIntentAction("pleaseRepeatEN", DEVELOPER_NAME,
 #                                 @__MODULE__, templateAction)
 #     TEXTS = TEXTS_EN
 else
-    Snips.registerIntentAction("ReadGoogleCalendarDE", DEVELOPER_NAME,
-                                @__MODULE__, googelCalendar)
+    Snips.registerIntentAction("ReadGoogleCalendarDE", googelCalendar)
     TEXTS = TEXTS_DE
 end
