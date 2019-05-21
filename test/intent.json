@@ -1,25 +1,12 @@
 {
   "sessionId": "1234567890",
-  "suteId": "default",
+  "siteId": "default",
   "input": "was sagt der kalender für heute",
   "intent": {
     "intentName": "andreasdominik:ReadGoogleCalendarDE",
     "confidenceScore": 1
   },
   "slots": [
-    {
-      "rawValue": "kalender",
-      "value": {
-        "kind": "Custom",
-        "value": "Kalender"
-      },
-      "range": {
-        "start": 13,
-        "end": 21
-      },
-      "entity": "ado/calendarmode-type",
-      "slotName": "mode"
-    },
     {
       "rawValue": "heute",
       "value": {
@@ -31,7 +18,7 @@
         "end": 31
       },
       "entity": "ado/calendarmode-type",
-      "slotName": "mode
+      "slotName": "mode"
     }
   ]
 }
