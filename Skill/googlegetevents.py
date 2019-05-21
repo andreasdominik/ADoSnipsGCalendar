@@ -88,8 +88,7 @@ def main():
 
     credentialsDir = sys.argv[1]
     credentialsFile = credentialsDir + '/' + sys.argv[2]
-    # pickleFile = '/tmp/' + sys.argv[3]
-    pickleFile = sys.argv[3]
+    pickleFile = '/tmp/' + sys.argv[3]
     query = sys.argv[4]  # one of next4, today
 
     creds = None

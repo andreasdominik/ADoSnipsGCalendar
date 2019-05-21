@@ -26,7 +26,7 @@ function getGoogleCalendar(mode)
     println("credsll: $mycreds")
     println("me: $myi")
 
-    shell = `cd /tmp; python2 $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
+    shell = `python2 $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
     #shell = `$RUNNER_SCRIPT $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
 
     return Snips.tryrun(shell, wait = true,
