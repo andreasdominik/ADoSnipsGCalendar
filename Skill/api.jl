@@ -17,19 +17,9 @@ function getGoogleCalendar(mode)
     TOKEN = Snips.getConfig(INI_GOOGLE_CREDENTIALS)
     PICKLE = Snips.getConfig(INI_PICKLE)
 
-    mypwd = read(`pwd`, String)
-    myll = read(`ls -al`, String)
-    myi = read(`whoami`, String)
-    mycreds = read(`ls -al -a $PATH`, String)
-    println("pwd: $mypwd")
-    println("ll: $myll")
-    println("credsll: $mycreds")
-    println("me: $myi")
-
     shell = `python2 $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
     # for testing only:
     # shell = `$RUNNER_SCRIPT $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
 
-    return Snips.tryrun(shell, wait = true,
-        errorMsg = "Sorry! I could not connect to the Google calendar")
+    return Snips.tryrun(shell, wait = true, errorMsg = TEXTS[:error_gcal])
 end

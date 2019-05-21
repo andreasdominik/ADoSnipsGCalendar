@@ -11,7 +11,7 @@
       "rawValue": "heute",
       "value": {
         "kind": "Custom",
-        "value": "today"
+        "value": "next4"
       },
       "range": {
         "start": 26,

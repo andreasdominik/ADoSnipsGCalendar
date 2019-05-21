@@ -1,15 +1,23 @@
 TEXTS_DE = Dict(
-:iam => "Ich bin dein Assistent",
-:isay => "Ich soll sagen",
-:bravo => "Bravo, du hast erfolgreich das Template installiert!",
-:noname => "Ich finde keinen Namen in der config Datei!",
-:dunno => "Ich habe nicht verstanden was ich sagen soll!"
+:dunno => "Ich habe nicht verstanden was ich machen soll!",
+:today => "heute",
+:tomorrow => "morgen",
+:soon => "In nächster Zeit",
+:no_events => "gibt es keine Termine",
+:one_event => "gibt es einen Termin",
+:are => "gibt es",
+:events => "Termine",
+:error_gcal => "Es gab ein Problem beim Abrufen der Termine vom Google-Kalender!"
 )
 
 TEXTS_EN = Dict(
-:iam => "I am yor home assistant",
-:isay => "You told me to say",
-:bravo => "Bravo, you managed to install the template!",
-:noname => "My name is not configured in the config file!",
-:dunno => "I did not catch what you want me to say!"
+:dunno => "I did not catch what you want me to do!",
+:today => "today",
+:tomorrow => "tomorrow",
+:soon => "in the near future",
+:no_events => "are no events",
+:one_event => "is one event",
+:are => "are",
+:events => "events",
+:error_gcal => "Sorry, I was not able to retrieve events from the Google calendar!"
 )

@@ -27,31 +27,30 @@ function googleCalendar(topic, payload)
     end
 
     if mode == "today"
-        when = "Heute"
+        when = TEXTS[:today]
     elseif mode == "tomorrow"
-        when = "Morgen"
+        when = TEXTS[:tomorrow]
     else
-        when = "In nächster Zeit"
+        when = TEXTS[:soon]
     end
 
     if getGoogleCalendar(mode)
         raw = Snips.tryParseJSONfile(CALENDAR_JSON)
 
         if raw[:num_events] < 1
-            Snips.publishEndSession("$when gibt es keine Termine!")
+            Snips.publishEndSession("$when $(TEXTS[:no_events])!")
         else
             events = raw[:events]
             if raw[:num_events] == 1
-                Snips.publishSay("$when gibt es einen Termin:", lang = LANG)
+                Snips.publishSay("$when $(TEXTS[:one_event]):")
             else
-                Snips.publishSay("$when gibt es $(raw[:num_events]) Termine:",
-                                 lang = LANG)
+                Snips.publishSay("$when $(TEXTS[:are]) $(raw[:num_events]) $(TEXTS[:events]):")
             end
             sayEvents(events)
             Snips.publishEndSession("")
         end
     else
-        Snips.publishEndSession("Es gab ein Problem beim Abrufen der Termine!")
+        Snips.publishEndSession(TEXTS[:error_gcal])
     end
     return false
 end
