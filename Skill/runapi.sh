@@ -6,15 +6,15 @@
 # PIC=$4
 # MOD=$5
 
-cd $PA
+cd /tmp
 echo "................"
 echo "................"
 pwd
 whoami
-ls -l > /opt/Snips/ApplicationData/ADoSnipsCalendar/Credentials/ll.txt
+ls -l > ll.txt
 echo "................"
 echo "................"
-cat /opt/Snips/ApplicationData/ADoSnipsCalendar/Credentials/ll.txt
+cat ll.txt
 env
 echo "................"
 echo "................"

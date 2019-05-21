@@ -26,8 +26,8 @@ function getGoogleCalendar(mode)
     println("credsll: $mycreds")
     println("me: $myi")
 
-    #shell = `python2 $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
-    shell = `$RUNNER_SCRIPT $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
+    shell = `cd /tmp; python2 $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
+    #shell = `$RUNNER_SCRIPT $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
 
     return Snips.tryrun(shell, wait = true,
         errorMsg = "Sorry! I could not connect to the Google calendar")
