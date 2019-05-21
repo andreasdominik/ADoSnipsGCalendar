@@ -14,6 +14,7 @@ ls -l > /opt/Snips/ApplicationData/ADoSnipsCalendar/Credentials/ll.txt
 echo "................"
 echo "................"
 cat /opt/Snips/ApplicationData/ADoSnipsCalendar/Credentials/ll.txt
+env
 echo "................"
 echo "................"
 
