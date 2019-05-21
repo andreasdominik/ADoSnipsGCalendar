@@ -15,9 +15,10 @@ end
 #
 function callbackRun(fun, topic, payload)
 
+    println("running callbackRun() for $topic and fun $fun")
     Snips.setSiteId(payload[:siteId])
     Snips.setSessionId(payload[:sessionId])
-    Snips.setIntent(topic)
+    Snips.setTopic(topic)
     result = fun(topic, payload)
 
     # fix, if the action does not return true or false:
