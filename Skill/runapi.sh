@@ -1,10 +1,13 @@
 #!/bin/bash -xv
 #
-# PY=$1
-# PA=$2
-# TOK=$3
-# PIC=$4
-# MOD=$5
+# Script to test the low-level api (pythonscript)
+# and write permissions in th file system.
+#
+PY=$1
+PA=$2
+TOK=$3
+PIC=$4
+MOD=$5
 
 cd /tmp
 echo "................"
