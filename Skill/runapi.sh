@@ -1,31 +1,11 @@
 #!/bin/bash -xv
 #
 # Script to test the low-level api (pythonscript)
-# and write permissions in th file system.
+# interactively
 #
-# PY=$1
-# PA=$2
-# TOK=$3
-# PIC=$4
-# MOD=$5
 
-echo "................"
-echo "................"
-cd /var/lib/snips/skills/ADoSnipsGCalendar/
-pwd
-ls -l > ll.txt
-cat ll.txt
-env
-echo "................"
-echo "................"
+CRED_PATH="$(cat ../config.ini | grep -Po '(?<=path_to_credentials=).*$')"
+CRED_FILE="$(cat ../config.ini | grep -Po '(?<=google_credentials_file=).*$')"
+PICKLE="$(cat ../config.ini | grep -Po '(?<=pickle_file=).*$')"
 
-echo "................"
-echo "................"
-cd /var/lib/snips/skills/
-pwd
-ls -l > ll.txt
-cat ll.txt
-env
-echo "................"
-echo "................"
-# python2 $1 . $3 $4 $5
+python2 googlegetevents.py $CRED_PATH $CRED_FILE $PICKLE next4
