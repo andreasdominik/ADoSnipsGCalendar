@@ -15,10 +15,19 @@ end
 #
 function callbackRun(fun, topic, payload)
 
-    println("running callbackRun() for $topic and fun $fun")
-    Snips.setSiteId(payload[:siteId])
-    Snips.setSessionId(payload[:sessionId])
     Snips.setTopic(topic)
+
+    if occursin(r"^hermes/intent/", topic)
+        Snips.setSiteId(payload[:siteId])
+        Snips.setSessionId(payload[:sessionId])
+        Snips.setIntent(topic)
+
+        if Snips.isFalseDetection(payload)
+            Snips.publishEndSession("")
+            return false
+        end
+    end
+
     result = fun(topic, payload)
 
     # fix, if the action does not return true or false:
