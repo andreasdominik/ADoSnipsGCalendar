@@ -17,7 +17,7 @@ function getGoogleCalendar(mode)
     TOKEN = Snips.getConfig(INI_GOOGLE_CREDENTIALS)
     PICKLE = Snips.getConfig(INI_PICKLE)
 
-    shell = `python2 $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
+    shell = `$PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
     # for testing only:
     #shell = `$RUNNER_SCRIPT $PYTHON_SCRIPT $PATH $TOKEN $PICKLE $mode`
 
