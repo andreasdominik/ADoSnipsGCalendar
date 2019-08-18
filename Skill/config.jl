@@ -21,7 +21,7 @@ Snips.setModule(@__MODULE__)
 # Filenames:
 #
 const CALENDAR_JSON = "/tmp/googleevents.json"
-const PYTHON_SCRIPT = "$MODULE_DIR/runpy.py"
+const PYTHON_SCRIPT = "$MODULE_DIR/runpy.sh"
 const RUNNER_SCRIPT = "$MODULE_DIR/runapi.sh"
 
 # Slots:
