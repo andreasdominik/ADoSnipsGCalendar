@@ -19,7 +19,7 @@ function googleCalendar(topic, payload)
 
     # log:
     #
-    println("[ADoSnipsGCalendar]: action googleCalendar() started.")
+    Snips.printLog("action googleCalendar() started.")
 
     mode = Snips.extractSlotValue(payload, SLOT_MODE)
     if mode == nothing
