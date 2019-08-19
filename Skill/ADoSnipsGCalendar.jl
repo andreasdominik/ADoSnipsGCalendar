@@ -17,6 +17,7 @@ Snips = SnipsHermesQnD
 
 Snips.readConfig("$APP_DIR")
 Snips.setLanguage(Snips.getConfig(:language))
+Snips.setAppName("ADoSnipsGCalendar")
 
 
 include("api.jl")
